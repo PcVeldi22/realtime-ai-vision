@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroVision &mdash; Real-Time AI Object Detection</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+  <header class="topbar">
+  <div class="brand">
+  <span class="brand-dot"></span>
+  <h1>NeuroVision</h1>
+  </div>
+  <p class="tagline">Real-time object &amp; gesture intelligence, 100% in your browser</p>
+</header>
+
+<main>
+<section class="stage">
+<div class="video-wrap">
+<video id="webcam" autoplay playsinline muted></video>
+<canvas id="overlay"></canvas>
+<div class="scan-line"></div>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+  </div>
+
+  <div class="hud">
+  <div class="hud-card">
+  <span class="hud-label">Status</span>
+  <span id="status" class="hud-value status-loading">Loading model&hellip;</span>
+  </div>
+  <div class="hud-card">
+  <span class="hud-label">FPS</span>
+  <span id="fps" class="hud-value">0</span>
+  </div>
+  <div class="hud-card">
+  <span class="hud-label">Objects Detected</span>
+  <span id="count" class="hud-value">0</span>
+  </div>
+  <div class="hud-card">
+  <span class="hud-label">Inference Time</span>
+  <span id="latency" class="hud-value">0 ms</span>
+  </div>
+  </div>
+  </section>
+
+  <section class="side-panel">
+  <h2>Live Detections</h2>
+  <ul id="detection-list" class="detection-list">
+  <li class="empty">No objects detected yet</li>
+  </ul>
+
+  <div class="controls">
+  <button id="start-btn" class="btn btn-primary">Start Camera</button>
+  <button id="snapshot-btn" class="btn btn-ghost" disabled>Save Snapshot</button>
+  </div>
+
+  <div class="about">
+  <h3>How it works</h3>
+<p>NeuroVision runs the COCO-SSD convolutional neural network fully client-side using TensorFlow.js. Every video frame from your webcam is analyzed locally &mdash; nothing is ever uploaded to a server.</p>
+  </div>
+  </section>
+  </main>
+
+  <footer>
+  <p>Built with TensorFlow.js &middot; COCO-SSD &middot; Zero backend &middot; Zero data collection</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+  <script src="script.js"></script>
+  </body>
+  </html>
