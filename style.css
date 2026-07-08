@@ -272,3 +272,24 @@ footer {
     main { grid-template-columns: 1fr; }
     .hud { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+.ocr-panel {
+      background: var(--panel);
+      border: 1px solid rgba(124, 77, 255, 0.35);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+}
+
+.ocr-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent-2);
+      min-height: 1.4em;
+      word-break: break-word;
+      font-family: "Consolas", monospace;
+      letter-spacing: 0.02em;
+}
